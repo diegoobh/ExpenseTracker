@@ -47,7 +47,7 @@ struct ContentView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                 ToolbarItem{
-                    Image(systemName: "bell.badge")
+                    Image(systemName: "info.circle")
                         .symbolRenderingMode(.palette)
                         .foregroundStyle(Color.Icon, .primary)
                 }
