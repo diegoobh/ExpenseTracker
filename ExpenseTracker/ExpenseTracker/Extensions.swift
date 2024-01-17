@@ -16,9 +16,9 @@ extension Color{
 }
 
 extension DateFormatter{
-    static let allNumericEU: DateFormatter = {
+    static let allNumericUSA: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "MM/dd/yyyy"
         
         return formatter
     }()
@@ -26,8 +26,20 @@ extension DateFormatter{
 
 extension String{
     func dateParsed() -> Date {
-        guard let parsedDate = DateFormatter.allNumericEU.date(from: self) else { return Date() }
+        guard let parsedDate = DateFormatter.allNumericUSA.date(from: self) else { return Date() }
         
         return parsedDate
+    }
+}
+
+extension Date: Strideable {
+    func formatted() -> String {
+        return self.formatted(.dateTime.year().month().day())
+    }
+}
+
+extension Double{
+    func roundedToTwo2Digits() -> Double {
+        return (self * 100).rounded() / 100
     }
 }

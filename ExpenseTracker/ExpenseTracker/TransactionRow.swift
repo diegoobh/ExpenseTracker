@@ -18,7 +18,7 @@ struct TransactionRow: View {
                 .fill(Color.Icon.opacity(0.3))
                 .frame(width: 44, height: 44)
                 .overlay{
-                    FontIcon.text(.awesome5Solid(code: .icons), fontsize: 24, color: Color.Icon)
+                    FontIcon.text(.awesome5Solid(code: transaction.icon), fontsize: 24, color: Color.Icon)
                 }
             
             VStack(alignment: .leading, spacing: 6){
@@ -48,6 +48,14 @@ struct TransactionRow: View {
     }
 }
 
-#Preview {
-    TransactionRow(transaction: transactionPreviewData)
+struct TransactionRow_Previews: PreviewProvider{
+    
+    static var previews: some View {
+        
+        Group{
+                TransactionRow(transaction: transactionPreviewData)
+                TransactionRow(transaction: transactionPreviewData)
+                    .preferredColorScheme(.dark)
+        }
+    }
 }
